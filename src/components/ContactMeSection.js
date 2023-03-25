@@ -41,9 +41,11 @@ const LandingSection = () => {
 
   React.useEffect(() => {
    
-    if (response) {
-    console.log("ENVIADO"); 
+    if (response) { 
       onOpen(response.type, response.message);
+      if (response.type == "success") {
+        formik.resetForm();
+      }
     }
   }, [response]);
 
